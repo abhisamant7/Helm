@@ -6,6 +6,9 @@ image:
   repository: abhisamant7/nodeserver
   tag: latest
   pullPolicy: IfNotPresent
+
+containerPort: 8080
+
   resources:
     requests:
       cpu: 200m
@@ -27,9 +30,9 @@ image:
   #   initialDelaySeconds: 40
   #   periodSeconds: 10
 service:
-  name: Node
-  type: NodePort
-  servicePort: 3000
+  type: LoadBalancer
+  port: 80
+  
 hpa:
   enabled: false
   minReplicas: 1
